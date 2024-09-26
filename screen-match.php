@@ -1,10 +1,27 @@
 <?php
 
+function exibeMensagemLancamento($ano) {
+    if($ano > 2022){
+        echo "Este filme é um lançamento.\n";
+    } elseif ($ano <= 2022 && $ano > 2020) {
+        echo"Este filme não é um lançamento.\n";
+    } else {
+        echo "Este filme não é um lançamento\n";
+    }
+}
+
+function incluidoNoPlano($planoPrime, $ano ) {
+    return $planoPrime || $ano > 2020;
+} 
+
+function exibeMensagemInformacoes($ano, $nome, $nota, $genero){
+    echo "\nNome do Filme: $nome \nNota do Filme: $nota \nAno de Lançamento: $ano \nO genero deste filme é: $genero\n";
+}
 echo"Bem vindo(a) ao Screen Match!";
 
 $nomeFilme = "Top Gun - Maverick";
-$nomeFilme = "Se beber não case";
-$nomeFilme = "Spider Man: No Way Home";
+// $nomeFilme = "Se beber não case";
+// $nomeFilme = "Spider Man: No Way Home";
 
 //argv permite que eu entre com dados atraves do terminal ao executar o meu arquivo
 $anoLancamento = 2022;
@@ -15,7 +32,7 @@ $notas = [];
 $somaDasNotas = 0;
 
 for ($i=1; $i < $argc; $i++) { 
-    $notas[$i-1] += (float) $argv[$i];
+    $notas[$i-1] = (float) $argv[$i];
 }       
 // foreach ($notas as $nota) {
 //     $somaDasNotas += $nota;
@@ -24,18 +41,6 @@ for ($i=1; $i < $argc; $i++) {
 $notaFilme = array_sum($notas)/$quantidadeDeNotas;
 
 $planoPrime = true;
-$incluidoNoPlano = $planoPrime || $anoLancamento > 2020;
-
-echo "\nNome do Filme: $nomeFilme \nNota do Filme: $notaFilme \nAno de Lançamento: $anoLancamento \n";
-
-
-if($anoLancamento > 2022){
-    echo "Este filme é um lançamento.\n";
-} elseif ($anoLancamento <= 2022 && $anoLancamento > 2020) {
-    echo"Este filme não é um lançamento.\n";
-} else {
-    echo "Este filme não é um lançamento\n";
-}
 
 //match expression, mto boa
 $genero = match ($nomeFilme) {
@@ -45,10 +50,8 @@ $genero = match ($nomeFilme) {
     default => "Gênero desconhecido"
 };
 
-//
-//$resultado = $expressao1 ? $expressao2 : $expressao3;
-
-echo "O genero deste filme é: $genero\n";
+exibeMensagemInformacoes($anoLancamento, $nomeFilme, $notaFilme, $genero);
+exibeMensagemLancamento(2022);
 
 // $filmes = [
 //     "nome" => "Kung Fu Panda 4", 
