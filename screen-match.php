@@ -1,6 +1,6 @@
 <?php
 
-function exibeMensagemLancamento($ano) {
+function exibeMensagemLancamento(int $ano): void {
     if($ano > 2022){
         echo "Este filme é um lançamento.\n";
     } elseif ($ano <= 2022 && $ano > 2020) {
@@ -10,11 +10,11 @@ function exibeMensagemLancamento($ano) {
     }
 }
 
-function incluidoNoPlano($planoPrime, $ano ) {
+function incluidoNoPlano(bool $planoPrime, int $ano ): bool {
     return $planoPrime || $ano > 2020;
 } 
 
-function exibeMensagemInformacoes($ano, $nome, $nota, $genero){
+function exibeMensagemInformacoes(int $ano,string $nome, int $nota, string $genero): void{
     echo "\nNome do Filme: $nome \nNota do Filme: $nota \nAno de Lançamento: $ano \nO genero deste filme é: $genero\n";
 }
 echo"Bem vindo(a) ao Screen Match!";
@@ -38,9 +38,10 @@ for ($i=1; $i < $argc; $i++) {
 //     $somaDasNotas += $nota;
 // }
 
-$notaFilme = array_sum($notas)/$quantidadeDeNotas;
+$notaFilme = array_sum(array: $notas)/$quantidadeDeNotas;
 
 $planoPrime = true;
+incluidoNoPlano(planoPrime: $planoPrime, ano: 2022);
 
 //match expression, mto boa
 $genero = match ($nomeFilme) {
