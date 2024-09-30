@@ -36,6 +36,9 @@ $genero = match ($nomeFilme) {
     default => "Gênero desconhecido"
 };
 
+exibeMensagemLancamento(ano: 2022);
+exibeMensagemInformacoes(ano: $anoLancamento, nome: $nomeFilme, nota: $notaFilme, genero: $genero);
+
 $filmes = [
     "nome" => "Kung Fu Panda 4", 
     "lancamento" => 2023,
@@ -43,8 +46,6 @@ $filmes = [
     "genero" => "Super Herói"
 ];
 
-exibeMensagemInformacoes(ano: $anoLancamento, nome: $nomeFilme, nota: $notaFilme, genero: $genero);
-exibeMensagemLancamento(ano: 2022);
 
 var_dump($notas);
 sort($notas);
