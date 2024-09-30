@@ -39,6 +39,8 @@ $genero = match ($nomeFilme) {
 exibeMensagemLancamento(ano: 2022);
 exibeMensagemInformacoes(ano: $anoLancamento, nome: $nomeFilme, nota: $notaFilme, genero: $genero);
 
+$filme = criaFilme(nome: "Thor: Ragnarok", anoLancamento: 2021, nota: 7.8, genero: "Super-Heroi");
+
 $filmes = [
     "nome" => "Kung Fu Panda 4", 
     "lancamento" => 2023,
