@@ -43,9 +43,8 @@ $filmes = [
     "nome" => "Kung Fu Panda 4", 
     "lancamento" => 2023,
     "nota" => $notaFilme,
-    "genero" => "Super Herói"
+    "genero" => "Super Heroi"
 ];
-
 
 var_dump($notas);
 sort($notas);
@@ -57,3 +56,7 @@ var_dump($filmes['nome']);
 $posicaoDoisPontos = strpos($filmes['nome'], '4');
 var_dump($posicaoDoisPontos);
 var_dump(substr($filmes['nome'], 0, $posicaoDoisPontos));
+
+$filmeComoStringJson = json_encode($filmes);
+
+file_put_contents(__DIR__ . '/filmes.json', $filmeComoStringJson);
