@@ -22,12 +22,14 @@ function exibeMensagemInformacoes(int $ano,string $nome, int $nota, string $gene
     echo "\nNome do Filme: $nome \nNota do Filme: $nota \nAno de Lançamento: $ano \nO genero deste filme é: $genero\n";
 }
 
-function criaFilme(string $nome, int $anoLancamento, float $nota, string $genero):array 
+function criaFilme(string $nome, int $anoLancamento, float $nota, string $genero):Filme 
 {
-    return [
-        "nome" => $nome, 
-        "anoLancamento" => $anoLancamento, 
-        "nota" => $nota, 
-        "genero" => $genero,
-    ];
+    $flime = new Filme();
+
+    $flime->nome = $nome;
+    $flime->anoLancamento = $anoLancamento;
+    $flime->nota = $nota;
+    $flime->genero = $genero;
+    
+    return $flime;
 }
