@@ -6,9 +6,9 @@ echo "Seja Bem-vindo(a) ao Screen Match\n";
 
 $filme = new Filme();
 
-$filme->acessaNome();
-$filme->acessaGenero();
-$filme->acessaAnoLancamento() . "";
+echo $filme->acessaNome() . " \n";
+echo $filme->acessaGenero() . "\n";
+echo $filme->acessaAnoLancamento() . "\n";
 
 /*$filme -> nome = "Thor Ragnarok"; 
 $filme -> anoLancamento = 2021; 
@@ -21,6 +21,6 @@ $filme -> avalia(nota: 5);
 
 // var_dump($filme);
 
-echo $filme->media();
-echo $filme->acessaAnoLancamento();
+echo $filme->media() . "\n";
+echo $filme->acessaAnoLancamento() . "\n";
 
