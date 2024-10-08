@@ -1,10 +1,17 @@
 <?php
 
 class Filme {
-    private string $nome = "Nome do filme";
-    private int $anoLancamento = 2024;
-    private string $genero = "Genero do filme";
-    private array $notas = [];
+
+    private array $notas;
+
+    public function __construct(
+        private readonly string $nome,
+        private readonly int $anoLancamento,
+        private readonly Genero $genero,
+    )
+    {
+        $this->notas = [];    
+    }
 
     public function avalia(float $nota):void 
     {
@@ -26,31 +33,23 @@ class Filme {
         return $this->anoLancamento;
     }
     //METODO SETTER = DEFINE A INFORMAÇÃO
-    public function defineAnoLancamento(int $anoLancamento): void 
-    {   
-        if ($anoLancamento > 0) {
-            $this->anoLancamento = $anoLancamento;
-        }
-    }
+    // public function defineAnoLancamento(int $anoLancamento): void 
+    // {   
+    //     if ($anoLancamento > 0) {
+    //         $this->anoLancamento = $anoLancamento;
+    //     }
+    // }
 
     //NOME
     public function acessaNome():string 
     {
         return $this->nome;    
     }
-    public function defineNome(string $nome):void
-    {
-        $this->nome = $nome;
-    }
 
     //GêNERO
-    public function acessaGenero():string 
+    public function acessaGenero():Genero 
     {
         return $this->genero;    
-    }
-    public function defineGenero(string $genero):void 
-    {
-        $this->genero = $genero;    
     }
 }
 
