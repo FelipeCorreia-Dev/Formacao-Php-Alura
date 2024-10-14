@@ -1,7 +1,9 @@
 <?php
 
+require __DIR__ ."/src/Calculos/CalculadoraDeMaratona.php";
 require __DIR__ . "/src/Modelo/Titulo.php";
 require __DIR__ . "/src/Modelo/Serie.php";
+require __DIR__ . "/src/Modelo/Episodio.php";
 require __DIR__ . "/src/Modelo/Genero.php";
 require __DIR__ . "/src/Modelo/Filme.php";
 
@@ -25,12 +27,25 @@ $novaSerie =  new Serie(
     nome: "Taugus", 
     anoLancamento: 2006, 
     genero: Genero:: Drama, 
-    teporadas: 3, 
+    temporadas: 3, 
     episodiosPorTemporadas: 8, 
     minutosPorEpisodio: 40
     );
 
-$novaSerie -> avalia(10);
-$novaSerie -> avalia(5);
+$episodio1 = new Episodio(
+    serie: $novaSerie,
+    nome: "Piloto",
+    numeroEpisodio: 1
+);
 
-echo $novaSerie -> media();
+$novaSerie -> avalia(nota: 10);
+$novaSerie -> avalia(nota: 5);
+
+echo $novaSerie -> media() . PHP_EOL;
+
+$calculadora = new CalculadoraDeMaraotona();
+
+$calculadora->inclui(titulo:$filme);
+$calculadora->inclui(titulo:$novaSerie);
+$duracaoTotal = $calculadora->duracaoTotal() ;
+echo $duracaoTotal. PHP_EOL;

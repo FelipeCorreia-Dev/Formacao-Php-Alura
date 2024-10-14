@@ -1,6 +1,6 @@
 <?php
 
-class Titulo {
+abstract class Titulo {
 
     private array $notas;
 
@@ -25,6 +25,8 @@ class Titulo {
 
         return $somaNotas/$quantidadeNotas;
     }
+
+    abstract public function duracaoEmMinutos(): int;
 
     //ANO LANCAMENTO
     //METODO GETTER = PEGA INFORMAÇÃO DESEJADA

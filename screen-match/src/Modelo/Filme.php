@@ -10,4 +10,10 @@ class Filme extends Titulo {
     {
         parent::__construct(nome: $nome, anoLancamento: $anoLancamento, genero: $genero);
     }
+
+    #[Override]
+    public function duracaoEmMinutos(): int
+    {
+        return $this->duracaoEmMinutos;
+    }
 }
