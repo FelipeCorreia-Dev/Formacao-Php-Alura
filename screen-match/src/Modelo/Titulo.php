@@ -1,8 +1,8 @@
 <?php
 
-abstract class Titulo {
+abstract class Titulo implements Avaliavel{
 
-    private array $notas;
+    use ComAvaliacao;
 
     public function __construct(
         public readonly string $nome,
@@ -10,20 +10,7 @@ abstract class Titulo {
         public readonly Genero $genero,
     )
     {
-        $this->notas = [];    
-    }
-
-    public function avalia(float $nota):void 
-    {
-        $this->notas[] = $nota;
-    }
-
-    public function media():float
-    {
-        $somaNotas = array_sum(array: $this->notas);
-        $quantidadeNotas = count(value: $this->notas);
-
-        return $somaNotas/$quantidadeNotas;
+  
     }
 
     abstract public function duracaoEmMinutos(): int;
@@ -34,13 +21,6 @@ abstract class Titulo {
     {
         return $this->anoLancamento;
     }
-    //METODO SETTER = DEFINE A INFORMAÇÃO
-    // public function defineAnoLancamento(int $anoLancamento): void 
-    // {   
-    //     if ($anoLancamento > 0) {
-    //         $this->anoLancamento = $anoLancamento;
-    //     }
-    // }
 
     //NOME
     public function acessaNome():string 
@@ -54,5 +34,13 @@ abstract class Titulo {
         return $this->genero;    
     }
 }
+
+    //METODO SETTER = DEFINE A INFORMAÇÃO
+    // public function defineAnoLancamento(int $anoLancamento): void 
+    // {   
+    //     if ($anoLancamento > 0) {
+    //         $this->anoLancamento = $anoLancamento;
+    //     }
+    // }
 
 //metodo = função dentro de uma classe

@@ -2,7 +2,7 @@
 
 class ConversorAvaliacaoEstrela 
 {
-        public function converte(Avaliavel $avaliavel)
+        public function converte(Avaliavel $avaliavel): float   
         {
             $nota = $avaliavel->media();
             return round($nota)/2;
