@@ -4,7 +4,7 @@ namespace ScreenMatch\Calculos;
 
 use ScreenMatch\Modelo\Titulo;
 
-class CalculadoraDeMaraotona
+class CalculadoraDeMaratona
 {
     private int $duracaoMaratona = 0;
     public function inclui(Titulo $titulo):void

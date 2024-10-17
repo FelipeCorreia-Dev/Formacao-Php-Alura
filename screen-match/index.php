@@ -1,17 +1,13 @@
 <?php
 
-spl_autoload_register(function(string $className){
-    $caminho = str_replace(search: "ScreenMatch", replace: "src", subject: $className) . ".php";
-    $caminho = str_replace(search: '//', replace: DIRECTORY_SEPARATOR, subject: $caminho);
-    require_once __DIR__. DIRECTORY_SEPARATOR. $caminho;
-});
+require "autoload.php";
 
 use ScreenMatch\Modelo\{
     Filme, Serie, Episodio, Genero
 };
 
 use ScreenMatch\Calculos\{
-    CalculadoraDeMaraotona, ConversorAvaliacaoEstrela   
+    CalculadoraDeMaratona, ConversorAvaliacaoEstrela   
 };
 
 
@@ -51,7 +47,7 @@ $novaSerie -> avalia(nota: 8);
 
 echo $novaSerie -> media() . PHP_EOL;
 
-$calculadora = new CalculadoraDeMaraotona();
+$calculadora = new CalculadoraDeMaratona();
 
 $calculadora->inclui(titulo:$filme);
 $calculadora->inclui(titulo:$novaSerie);
