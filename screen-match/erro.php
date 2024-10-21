@@ -1,4 +1,5 @@
 <?php
+
 use ScreenMatch\Calculos\ConversorAvaliacaoEstrela;
 use ScreenMatch\Modelo\Episodio;
 use ScreenMatch\Modelo\Serie;
@@ -23,6 +24,15 @@ $primeiroEpisodio = new Episodio(
 
 $conversor = new ConversorAvaliacaoEstrela();
 
-echo $conversor->converte(avaliavel: $primeiroEpisodio);
+try {
+    $primeiroEpisodio -> avalia(10);
+    $primeiroEpisodio -> avalia(-10);
+
+    echo $conversor->converte(avaliavel: $primeiroEpisodio);
+} catch (\Exception $exception) {
+    echo "Um problema aconteceu: " . $exception->getMessage();
+}
+
+
 
 
