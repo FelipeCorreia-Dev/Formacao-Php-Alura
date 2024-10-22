@@ -2,6 +2,8 @@
 
 namespace ScreenMatch\Modelo;
 
+use ScreenMatch\Exception\NotaInvalidException;
+
 trait ComAvaliacao
 {
     private array $notas = [];
@@ -9,13 +11,13 @@ trait ComAvaliacao
     /**
      * Summary of avalia
      * @param float $nota
-     * @throws \InvalidArgumentException se a nota for negativa ou maior que 10
+     * @throws NotaInvalidException se a nota for negativa ou maior que 10
      * @return void
      */
     public function avalia(float $nota):void 
     {   
         if($nota < 0 || $nota > 10){
-            throw new \InvalidArgumentException("É necessário que a nota esteja entre 0 e 10");
+            throw new NotaInvalidException("É necessário que a nota esteja entre 0 e 10");
         }
         $this->notas[] = $nota;
     }

@@ -22,12 +22,11 @@ $primeiroEpisodio = new Episodio(
     numeroEpisodio: 1
 );
 
-$conversor = new ConversorAvaliacaoEstrela();
-
 try {
     $primeiroEpisodio -> avalia(10);
-    $primeiroEpisodio -> avalia(-10);
-
+    $primeiroEpisodio -> avalia(8);
+    
+    $conversor = new ConversorAvaliacaoEstrela();
     echo $conversor->converte(avaliavel: $primeiroEpisodio);
 } catch (\Exception $exception) {
     echo "Um problema aconteceu: " . $exception->getMessage();
